@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WebsitePhanPhoiSach.Models.danhmucsachdaban>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Các báo cáo đại lý</h2>
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Thời gian
+        </th>
+        <th>
+            Tên đại lý
+        </th>
+        <th>
+            Số tiền còn nợ
+        </th>
+        <th>
+            Số tiền đã thanh toán
+        </th>
+        <th>
+            Tình trạng
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.thoigian)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.daily.tendl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sotienconno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sotiendathanhtoan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tinhtrang)
+            </td>
+            <td>
+                @if (item.tinhtrang == "Waiting")
+                {@Html.ActionLink("Sửa", "Edit", new { id = item.iddmsdb })  } |
+                @Html.ActionLink("Chi tiết báo cáo", "Details", new { id = item.iddmsdb })
+                
+               
+                @using (Html.BeginForm("Index", "danhmucsachdabans", FormMethod.Post))
+                {
+                    @Html.Hidden("iddmsdb", item.iddmsdb)
+                    if (item.tinhtrang == "Waiting")
+                    {
+                        <input type="submit" value="Thanh toán" class="btn btn-default" />
+                        }
+                    }
+                
+            </td>
+        </tr>
+    }
+</table>

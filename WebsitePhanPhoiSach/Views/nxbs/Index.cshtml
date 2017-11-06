@@ -1,0 +1,62 @@
+﻿@model IEnumerable<WebsitePhanPhoiSach.Models.nxb>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thêm mới nhà xuất bản</h2>
+
+<p>
+    @Html.ActionLink("Thêm", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã nhà xuất bản :
+        </th>
+        <th>
+            Tên nhà xuất bản
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            Số điện thoại
+        </th>
+        <th>
+            Số tài khoản
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idnxb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tennxb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.diachi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sodt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sotk)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.idnxb }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.idnxb }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.idnxb })
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    @Html.ActionLink("Quay về trang chủ", "Index","Home")
+</p>

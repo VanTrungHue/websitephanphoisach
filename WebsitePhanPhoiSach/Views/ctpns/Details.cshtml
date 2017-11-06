@@ -1,0 +1,43 @@
+﻿@model WebsitePhanPhoiSach.Models.ctpn
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ctpn</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.soluong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soluong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phieunhap.nguoigiaosach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phieunhap.nguoigiaosach)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sach.tensach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sach.tensach)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

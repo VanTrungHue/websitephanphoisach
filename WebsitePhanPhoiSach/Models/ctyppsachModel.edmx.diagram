@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5d7eda6bec014830b3a8c0a6fd70aa02" Name="Diagram1">
+        <EntityTypeShape EntityType="ctyppsachModel.congnotheothoigian" Width="1.5" PointX="6" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctyppsachModel.ctdmsdb" Width="1.5" PointX="8.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctyppsachModel.ctpn" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctyppsachModel.ctpx" Width="1.5" PointX="8.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctyppsachModel.daily" Width="1.5" PointX="3.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctyppsachModel.danhmucsachdaban" Width="1.5" PointX="6" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctyppsachModel.hangtoncuadaily" Width="1.5" PointX="8.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctyppsachModel.linhvuc" Width="1.5" PointX="3.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctyppsachModel.nxb" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctyppsachModel.phieunhap" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctyppsachModel.phieutratien" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctyppsachModel.phieuxuat" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctyppsachModel.sach" Width="1.5" PointX="6" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctyppsachModel.sotienphaitrachonxb" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctyppsachModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ctyppsachModel.tonkho" Width="1.5" PointX="8.25" PointY="21.125" IsExpanded="true" />
+        <AssociationConnector Association="ctyppsachModel.FK__congnotheo__iddl__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="ctyppsachModel.FK__ctdmsdb__iddmsdb__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="ctyppsachModel.FK__ctdmsdb__idsach__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="ctyppsachModel.FK__ctpn__idpn__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="ctyppsachModel.FK__ctpn__idsach__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="ctyppsachModel.FK__ctpx__idpx__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="ctyppsachModel.FK__ctpx__idsach__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="ctyppsachModel.FK__danhmucsac__iddl__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="ctyppsachModel.FK__hangtoncua__iddl__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="ctyppsachModel.FK__phieuxuat__iddl__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="ctyppsachModel.FK__hangtoncu__idsac__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="ctyppsachModel.FK__sach__idlv__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="ctyppsachModel.FK__phieunhap__idnxb__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="ctyppsachModel.FK__phieutrat__idnxb__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="ctyppsachModel.FK__sach__idnxb__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="ctyppsachModel.FK__sotienpha__idnxb__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="ctyppsachModel.FK__tonkho__idsach__286302EC" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

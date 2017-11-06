@@ -1,0 +1,49 @@
+﻿@model WebsitePhanPhoiSach.Models.daily
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Bạn có chắc là mình muốn xóa đại lý này chứ </h3>
+<div>
+    <h4>daily</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Tên đại lý")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tendl)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Địa chỉ")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diachi)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Số điện thoại")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sodt)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay về trang danh sách", "Index")
+        </div>
+    }
+</div>

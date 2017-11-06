@@ -1,0 +1,43 @@
+﻿@model WebsitePhanPhoiSach.Models.daily
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết thông tin đại lý</h2>
+
+<div>
+    <h4>Đại lý</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Tên đại lý")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tendl)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Địa chỉ")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diachi)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Số điện thoại")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sodt)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.iddl }) |
+    @Html.ActionLink("Trở về trang danh sách", "Index")
+</p>

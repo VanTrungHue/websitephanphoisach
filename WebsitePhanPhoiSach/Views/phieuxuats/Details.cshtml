@@ -1,0 +1,71 @@
+﻿@model WebsitePhanPhoiSach.Models.phieuxuat
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết</h2>
+
+<div>
+    <h4>Phiếu xuất</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Người nhận")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nguoinhan)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Ngày xuất")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngayxuat)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Đại lý")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daily.tendl)
+        </dd>
+
+    </dl>
+</div>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayName("Tên Sách")</th>
+        <th>@Html.DisplayName("Số lượng nhập ")</th>
+        <th></th>
+    </tr>
+    @if (Model.ctpxes != null)
+    {
+        foreach (var item in Model.ctpxes)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sach.tensach)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.soluong)
+                </td>
+            </tr>
+
+        }
+    }
+    else
+    {
+        <tr>
+            <td>Không có chi tiết</td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.idpx }) |
+    @Html.ActionLink("Quay về danh sách", "Index")
+</p>

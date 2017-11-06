@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebsitePhanPhoiSach.Models.phieunhap>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách phiếu nhập</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Người giao sách")
+        </th>
+        <th>
+            @Html.DisplayName("Ngày nhập")
+        </th>
+        <th>
+            @Html.DisplayName("Người viết phiếu")
+        </th>
+        <th>
+            @Html.DisplayName("Nhà xuất bản")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nguoigiaosach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ngaynhap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nguoivietphieu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nxb.tennxb)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.idpn }) |
+            @Html.ActionLink("Chi tiết phiếu nhập", "Details", new { id=item.idpn }) |
+   
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,80 @@
+﻿@model WebsitePhanPhoiSach.Models.danhmucsachdaban
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết báo cáo</h2>
+
+<div>
+    <h4>Báo cáo đại lý</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>        
+            @Html.DisplayName("Ngày tạo báo cáo")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thoigian)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Số tiền đại lý đã thanh toán")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sotiendathanhtoan)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Số tiền đại lý còn nợ")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sotienconno)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Tên đại lý")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.daily.tendl)
+        </dd>
+
+    </dl>
+</div>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayName("Tên Sách")</th>
+        <th>@Html.DisplayName("Số lượng báo cáo ")</th>
+        <th></th>
+    </tr>
+    @if (Model.ctdmsdbs != null)
+    {
+        foreach (var item in Model.ctdmsdbs)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sach.tensach)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.soluong)
+                </td>
+            </tr>
+
+        }
+    }
+    else
+    {
+        <tr>
+            <td>Không có chi tiết</td>
+        </tr>
+    }
+</table>
+<p>
+  
+    @Html.ActionLink("Trở về trang danh sách", "Index")
+</p>
+

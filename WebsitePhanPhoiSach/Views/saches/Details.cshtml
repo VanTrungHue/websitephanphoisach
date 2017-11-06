@@ -1,0 +1,67 @@
+﻿@model WebsitePhanPhoiSach.Models.sach
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết sách </h2>
+
+<div>
+    <h4>Sách</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Tên sách")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tensach)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Tác giả")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tacgia)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Giá xuất")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.giaxuat)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Giá nhập")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gianhap)
+        </dd>
+
+        <dt>
+        @Html.DisplayName("Lĩnh vực")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.linhvuc.tenlv)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Nhà xuất bản")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nxb.tennxb)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.idsach }) |
+    @Html.ActionLink("Quay về trang Sách", "Index")
+</p>

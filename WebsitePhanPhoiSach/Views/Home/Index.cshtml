@@ -1,0 +1,128 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Website Phân Phối Sách</h1>
+    <p class="lead">Công ty chuyên phân phối các loại sách đến các đại lý và nhận sách từ các nhà xuất bản.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Xem chi tiết &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Sách</h2>
+        <p>
+           Danh sách các loại sách của công ty
+        </p>
+        <p>
+            @using (Html.BeginForm("Index", "saches"))
+            {
+                <button class="btn btn-default">Xem chi tiết &raquo;</button>
+
+            }
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Nhà Xuất Bản</h2>
+        <p> Danh sách các nhà xuất bản</p>
+        <p>
+        @using (Html.BeginForm("Index", "nxbs"))
+        {
+            <button class="btn btn-default">Xem chi tiết &raquo;</button>
+           
+        }
+        
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Đại Lý</h2>
+        <p> Danh sách các đại lý</p>
+        <p>
+            @using (Html.BeginForm("Index", "dailies"))
+            {
+                <button class="btn btn-default">Xem chi tiết &raquo;</button>
+
+            }
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Tồn Kho</h2>
+        <p>Danh sách số lượng sách trong kho</p>
+        <p>
+            @using (Html.BeginForm("Index", "tonkhoes"))
+            {
+                <button class="btn btn-default">Xem chi tiết &raquo;</button>
+
+            }
+
+        </p>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Phiếu Nhập</h2>
+        <p>Nhập sách từ các nhà xuất bản</p>
+        <p>
+            @using (Html.BeginForm("Index", "phieunhaps"))
+            {
+                <button class="btn btn-default">Xem chi tiết &raquo;</button>
+
+            }
+        </p>
+    </div>
+    
+    <div class="col-md-4">
+        <h2>Phiếu Xuất</h2>
+        <p>Tạo phiếu xuất cho các đại lý</p>
+        <p>
+            @using (Html.BeginForm("Index", "phieuxuats"))
+            {
+                <button class="btn btn-default">Xem chi tiết &raquo;</button>
+
+            }
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Báo Cáo Đại Lý</h2>
+        <p>Lập danh sách các báo cáo của đại lý </p>
+        <p>
+            @using (Html.BeginForm("Index", "danhmucsachdabans"))
+            {
+                <button class="btn btn-default">Xem chi tiết &raquo;</button>
+
+            }
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Số tiền phải trả cho NXB</h2>
+        <p> Hiển thị danh sách số tiền phải trả cho nhà xuất bản </p>
+        <p>
+            @using (Html.BeginForm("Index", "sotienphaitrachonxb"))
+            {
+                <button class="btn btn-default">Xem chi tiết &raquo;</button>
+
+            }
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Công Nợ Theo Thời Gian</h2>
+        <p>Lập công nợ cho đại lý</p>
+        <p>
+            @using (Html.BeginForm("Index", "congno"))
+            {
+                <button class="btn btn-default">Xem chi tiết &raquo;</button>
+
+            }
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Thống Kê</h2>
+        <p>Thông kê doanh thu của công ty</p>
+        <p>@using (Html.BeginForm("Index", "doanhthu"))
+            {
+            <button class="btn btn-default">Xem chi tiết &raquo;</button>
+
+        }
+
+        </p>
+    </div>
+</div>

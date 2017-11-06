@@ -1,0 +1,62 @@
+﻿@model IEnumerable<WebsitePhanPhoiSach.Models.congnotheothoigian>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Công nợ</h2>
+@using (Html.BeginForm("Index", "congno", FormMethod.Get))
+{
+    <div class="form-inline">
+        @Html.Label("Thời điểm")
+        <div class="form-group input-group-sm">
+            @Html.TextBox("thoidiem", null, new { @class = "form-control datepicker", placeholder = "Chọn ngày tháng năm", autocomplete = "off" })
+        </div>
+        @*<input type="date" class="form-control"/>*@
+        <div class="form-group">
+            <div>
+                <input type="submit" value="Tìm" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<hr />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Thời điểm cập nhật")
+        </th>
+        <th>
+            @Html.DisplayName("Công nợ")
+        </th>
+       
+        <th>
+            @Html.DisplayName("Đại lý")
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.thoidiem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.congno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.daily.tendl)
+            </td>
+           
+        </tr>
+    }
+</table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/mycustomjquery")
+}
+
+
+
+

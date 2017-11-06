@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebsitePhanPhoiSach.Models.daily>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Đại lý</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Tên đại lý")
+        </th>
+        <th>
+            @Html.DisplayName("Địa chỉ")
+        </th>
+        <th>
+            @Html.DisplayName("Số điện thoại")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tendl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diachi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sodt)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.iddl }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id=item.iddl }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.iddl })
+        </td>
+    </tr>
+}
+
+</table>
