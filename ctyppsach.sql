@@ -1,4 +1,4 @@
-﻿create database ctyppsach1
+﻿create database ctyppsach
 go
 
 create table nxb
