@@ -53,6 +53,22 @@ namespace WebsitePhanPhoiSach.Controllers
         {
             if (ModelState.IsValid)
             {
+                foreach (sach s in db.saches)
+                {
+                    if(sach.tensach == s.tensach)
+                    {
+                        ModelState.AddModelError("", "Trùng tên sách hoặc sách đã tồn tại");
+                        ViewBag.idlv = new SelectList(db.linhvucs, "idlv", "tenlv", sach.idlv);
+                        ViewBag.idnxb = new SelectList(db.nxbs, "idnxb", "tennxb", sach.idnxb);
+                        return View();
+                    }
+
+                }
+                tonkho tk = new tonkho();
+                tk.idsach = sach.idsach;
+                tk.thoidiem = DateTime.Now;
+                tk.soluongton = 0;
+                db.tonkhoes.Add(tk);
                 db.saches.Add(sach);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -89,6 +105,7 @@ namespace WebsitePhanPhoiSach.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 db.Entry(sach).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -119,6 +136,22 @@ namespace WebsitePhanPhoiSach.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             sach sach = db.saches.Find(id);
+            foreach (tonkho tk in db.tonkhoes)
+            {
+                if (tk.idsach == sach.idsach)
+                {
+                    db.tonkhoes.Remove(tk);
+                }
+            }
+            foreach(ctpn ct in db.ctpns)
+            {
+                if(ct.idsach == sach.idsach)
+                {
+                    db.ctpns.Remove(ct);
+                    phieunhap pn = db.phieunhaps.Find(ct.idpn);
+                    db.phieunhaps.Remove(pn);
+                }
+             }
             db.saches.Remove(sach);
             db.SaveChanges();
             return RedirectToAction("Index");

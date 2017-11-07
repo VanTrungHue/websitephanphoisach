@@ -52,11 +52,23 @@ namespace WebsitePhanPhoiSach.Controllers
            
             if (ModelState.IsValid)
             {
-                db.nxbs.Add(nxb);
+                foreach (nxb n in db.nxbs)
+                {
+                    if (n.tennxb == nxb.tennxb)
+                    {
+                        ModelState.AddModelError("", "Nhà xuất bản đã tồn tại");
+                        
+                        return View();
+                    }
+
+                }
+                
                 sotienphaitrachonxb a = new sotienphaitrachonxb();
                 a.idnxb = nxb.idnxb;
                 a.sotienphaitra = 0;
+                a.thoidiem = DateTime.Now;
                 db.sotienphaitrachonxbs.Add(a);
+                db.nxbs.Add(nxb);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -116,6 +128,13 @@ namespace WebsitePhanPhoiSach.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             nxb nxb = db.nxbs.Find(id);
+            foreach (sotienphaitrachonxb st in db.sotienphaitrachonxbs)
+            {
+                if (st.idnxb == nxb.idnxb)
+                {
+                    db.sotienphaitrachonxbs.Remove(st);
+                }
+            }
             db.nxbs.Remove(nxb);
             db.SaveChanges();
             return RedirectToAction("Index");

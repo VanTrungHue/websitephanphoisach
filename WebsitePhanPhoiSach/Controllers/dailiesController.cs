@@ -50,6 +50,21 @@ namespace WebsitePhanPhoiSach.Controllers
         {
             if (ModelState.IsValid)
             {
+                foreach (daily dl in db.dailies)
+                {
+                    if (daily.tendl == dl.tendl)
+                    {
+                        ModelState.AddModelError("", "Đại lý đã tồn tại");
+                       
+                        return View();
+                    }
+
+                }
+                congnotheothoigian cn = new congnotheothoigian();
+                cn.iddl = daily.iddl;
+                cn.thoidiem = DateTime.Now;
+                cn.congno = 0;
+                db.congnotheothoigians.Add(cn);
                 db.dailies.Add(daily);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -109,7 +124,15 @@ namespace WebsitePhanPhoiSach.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            
             daily daily = db.dailies.Find(id);
+            foreach(congnotheothoigian cn in db.congnotheothoigians)
+            {
+                if(cn.iddl == daily.iddl)
+                {
+                    db.congnotheothoigians.Remove(cn);
+                }
+            }
             db.dailies.Remove(daily);
             db.SaveChanges();
             return RedirectToAction("Index");
