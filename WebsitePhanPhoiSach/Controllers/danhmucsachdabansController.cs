@@ -200,6 +200,9 @@ namespace WebsitePhanPhoiSach.Controllers
                 {
                     hangtoncuadaily ht = db.hangtoncuadailies.FirstOrDefault(o => o.iddl == danhmucsachdaban.iddl && o.idsach == ct.idsach);
                     int hangtondaily = (int)(ht.soluongchuaban + ct.soluong);
+                    ht.soluongchuaban = hangtondaily;
+                    db.Entry(ht).State = EntityState.Modified;
+                    System.Diagnostics.Debug.WriteLine("Hàng tồn đại lý return : " + hangtondaily);
                 }
                 //thêm chi tiết sửa vào database table hangtoncuadaily
                 foreach (ctdmsdb ct in ctdmsdb)
@@ -211,6 +214,7 @@ namespace WebsitePhanPhoiSach.Controllers
                     ht.soluongchuaban = (int)(ht.soluongchuaban - ct.soluong);
                     if (ht.soluongchuaban < 0)
                     {
+                        ModelState.AddModelError("", "Hàng tồn của đại lý sau khi sửa bé hơn 0");
                         danhmucsachdaban.ctdmsdbs = ctdmsdb;
                         dmvm.danhmucsachdaban = danhmucsachdaban;
                         return View(dmvm);
@@ -249,6 +253,7 @@ namespace WebsitePhanPhoiSach.Controllers
                     
                    if (tongtienmoi < 0)
                     {
+                        ModelState.AddModelError("", "Tổng tiền sau khi sửa nhỏ hơn 0 ");
                         danhmucsachdaban.ctdmsdbs = ctdmsdb;
                         dmvm.danhmucsachdaban = danhmucsachdaban;
                         return View(dmvm);

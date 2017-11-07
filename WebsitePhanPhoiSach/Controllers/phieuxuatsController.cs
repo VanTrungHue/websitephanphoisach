@@ -116,7 +116,9 @@ namespace WebsitePhanPhoiSach.Controllers
                 if (cnht.congno != null)
                 {
                     cn.iddl = phieuxuat.iddl;
-                    cn.congno = cn.congno + tongtien;
+                    System.Diagnostics.Debug.WriteLine("Tổng tiền là : " +tongtien);
+                    cn.congno = cnht.congno + tongtien;
+                    System.Diagnostics.Debug.WriteLine("Công nợ là : " + cn.congno);
                     db.congnotheothoigians.Add(cn);
                 }
                 else
