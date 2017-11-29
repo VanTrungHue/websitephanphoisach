@@ -71,7 +71,7 @@ namespace WebsitePhanPhoiSach.Controllers
                     tk.thoidiem = DateTime.Now;
                     tonkho tkht = db.tonkhoes.OrderByDescending(o => o.idtk).FirstOrDefault(o => o.idsach == (int)ct.idsach);
                     //kiem tra xem cuon sach du so luong de xuat ko
-                    if (tkht != null && tkht.soluongton > ct.soluong)
+                    if (tkht != null && tkht.soluongton >= ct.soluong)
                     {
                         tk.idsach = (int)ct.idsach;
                         tk.soluongton = tkht.soluongton - ct.soluong;

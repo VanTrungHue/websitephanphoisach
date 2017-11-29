@@ -80,9 +80,17 @@ namespace WebsitePhanPhoiSach.Controllers
                     ct.iddmsdb = iddm;
                     ct.idctdmsdb = idct;
                     idct++;
-                    hangtoncuadaily htdl = db.hangtoncuadailies
-                    .FirstOrDefault(b => b.iddl == danhmucsachdaban.iddl && b.idsach == ct.idsach);
-                        if(htdl != null && htdl.soluongchuaban >= ct.soluong)
+                    hangtoncuadaily htdl = db.hangtoncuadailies.FirstOrDefault(o => o.iddl == danhmucsachdaban.iddl && o.idsach == ct.idsach);
+                    if(htdl == null )
+                    {
+                        ModelState.AddModelError("", "Không tìm thấy hàng tồn . Chọn sai đại lý hoặc là chọn sai tên sách ở chi tiết");
+                        ViewBag.iddl = new SelectList(db.dailies, "iddl", "tendl", danhmucsachdaban.iddl);
+                        ViewBag.idsach = new SelectList(db.saches, "idsach", "tensach");
+                        dmvm.danhmucsachdaban = danhmucsachdaban;
+                        return View(dmvm);
+                    }
+                  
+                    if (htdl != null && htdl.soluongchuaban >= ct.soluong)
                     {
                         htdl.soluongchuaban = htdl.soluongchuaban - ct.soluong;
                         db.Entry(htdl).State = EntityState.Modified;
@@ -106,6 +114,7 @@ namespace WebsitePhanPhoiSach.Controllers
                     st.thoidiem = (DateTime)danhmucsachdaban.thoigian;
                     sotienphaitrachonxb stht = db.sotienphaitrachonxbs.OrderByDescending(o => o.id).FirstOrDefault(o => o.idnxb == n.idnxb);
                     System.Diagnostics.Debug.WriteLine("Id nhà xuất bản sau khi lấy : " + stht.idnxb);
+
                     System.Diagnostics.Debug.WriteLine("Số tiền phải trả cho nhà xuất bản : " + stht.sotienphaitra);
 
                     tongtienbanduoc = (decimal)(ct.soluong * s.gianhap);
